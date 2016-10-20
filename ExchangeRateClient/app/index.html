@@ -1,13 +1,22 @@
 <!doctype html>
-<html>
+<html ng-app="RateApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <title>Random Ticker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
     <script src="app.js"></script>
+    <style>li {list-style: none; border: solid 1px #ccc; width: 150px; padding: 10px; margin: 3px;}</style>
 </head>
-<body>
-    <div id="random-ticker"></div>
+<body ng-controller="RateCtrl">
+    
+    <div id="random-ticker">
+	    <ul ng-init="getRateList()">
+		    <li ng-repeat="(pair, rate) in rates">{{pair}} –– {{rate}}</li>
+		</ul>
+    </div>
+    
+    
     <script>
         app.run();
     </script>
